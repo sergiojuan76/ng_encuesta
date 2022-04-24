@@ -1,5 +1,5 @@
 <p>Encuesta ID {{encuesta?.id}}</p>
 <p>Título: {{encuesta?.titulo}}</p>
 <div *ngFor="let opcion of encuesta?.opciones">
-    <app-opcion-encuesta [opcion]="opcion" [encuesta]="encuesta!"></app-opcion-encuesta>
+    <app-opcion-encuesta [opcion]="opcion" [encuesta]="encuesta!" (voto)="onNotify()"></app-opcion-encuesta>
 </div>

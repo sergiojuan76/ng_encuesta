@@ -23,4 +23,8 @@ export class EncuestaComponent implements OnInit {
     console.log(`En EncuestaComponent.ngOnInit() ${idEncuesta}`);
     this.encuesta = this.encuestaService.getEncuesta(idEncuesta);
   }
+
+  onNotify() {
+    console.log("Voto");
+  }
 }

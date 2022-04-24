@@ -1,4 +1,4 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Encuesta } from '../model/encuesta';
 import { Opcion } from '../model/opcion';
 
@@ -11,9 +11,15 @@ export class OpcionEncuestaComponent implements OnInit {
 
   @Input() opcion!: Opcion;
   @Input() encuesta!: Encuesta;
+  @Output() voto = new EventEmitter();
 
   constructor() { }
 
   ngOnInit(): void {
+  }
+
+  votar(): void {
+    console.log("En voto");
+    this.voto.emit();
   }
 }
