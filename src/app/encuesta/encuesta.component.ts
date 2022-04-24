@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
 import { Encuesta, encuesta1 } from '../model/encuesta';
+import { EncuestaService } from '../encuesta.service';
 
 @Component({
   selector: 'app-encuesta',
@@ -8,10 +10,16 @@ import { Encuesta, encuesta1 } from '../model/encuesta';
 })
 export class EncuestaComponent implements OnInit {
 
-  encuesta: Encuesta = encuesta1;
+  encuesta!: Encuesta|null;
 
-  constructor() { }
+  constructor(
+    private activatedRoute : ActivatedRoute,
+    private encuestaService : EncuestaService) { }
 
   ngOnInit(): void {
+    const routeParams = this.activatedRoute.snapshot.paramMap;
+    const idEncuesta = Number(routeParams.get('idEncuesta'));
+    console.log(`En EncuestaComponent.ngOnInit() ${idEncuesta}`);
+    this.encuesta = this.encuestaService.getEncuesta(idEncuesta);
   }
 }

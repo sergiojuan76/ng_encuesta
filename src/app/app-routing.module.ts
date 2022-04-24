@@ -4,8 +4,8 @@ import { OpcionComponent } from './opcion/opcion.component';
 import { EncuestaComponent } from './encuesta/encuesta.component';
 
 const routes: Routes = [
-  { path: '', component: EncuestaComponent},
-  { path: 'opcion/:nombre', component: OpcionComponent}
+  { path: 'encuesta/:idEncuesta', component: EncuestaComponent},
+  { path: 'opcion/:idEncuesta/:idOpcion', component: OpcionComponent}
 ];
 
 @NgModule({

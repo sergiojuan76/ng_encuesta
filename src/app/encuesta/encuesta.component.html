@@ -1,5 +1,5 @@
-<p>Encuesta ID {{encuesta.id}}</p>
-<p>Título: {{encuesta.titulo}}</p>
-<div *ngFor="let opcion of encuesta.opciones">
-    <a [title]="opcion.nombre" [routerLink]="['/opcion', opcion.nombre]">{{opcion.nombre}}</a>
+<p>Encuesta ID {{encuesta?.id}}</p>
+<p>Título: {{encuesta?.titulo}}</p>
+<div *ngFor="let opcion of encuesta?.opciones">
+    <a [title]="opcion.nombre" [routerLink]="['/opcion', encuesta!.id, opcion.id]">{{opcion.nombre}}</a>
 </div>

@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { Opcion, opciones1, opciones2 } from './model/opcion';
+import { Opcion, opciones1 } from './model/opcion';
 
 @Injectable({
   providedIn: 'root'
@@ -7,7 +7,6 @@ import { Opcion, opciones1, opciones2 } from './model/opcion';
 export class OpcionService {
 
   opciones1: Opcion[] = opciones1;
-  opciones2: Opcion[] = opciones2;
 
   constructor() { }
 

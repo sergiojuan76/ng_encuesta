@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { Opcion } from '../model/opcion';
-import { OpcionService } from '../opcion.service';
+import { EncuestaService } from '../encuesta.service';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-opcion',
@@ -9,12 +10,17 @@ import { OpcionService } from '../opcion.service';
 })
 export class OpcionComponent implements OnInit {
 
-  opciones!: Opcion[];
+  opcion!: Opcion|null;
 
-  constructor(private opcionService : OpcionService) { }
+  constructor(
+    private activatedRoute : ActivatedRoute,
+    private encuestaService : EncuestaService) { }
 
   ngOnInit(): void {
-    this.opciones = this.opcionService.getOpciones();
-    console.log(`Número de opciones ${this.opciones.length}`);
+    const paramMap = this.activatedRoute.snapshot.paramMap;
+    const idEncuesta = Number(paramMap.get("idEncuesta"));
+    const idOpcion = Number(paramMap.get("idOpcion"));
+    console.log(`en OpcionComponent.ngOnInit() -> ${idEncuesta} - ${idOpcion}`);
+    this.opcion = this.encuestaService.getOpcion(idEncuesta, idOpcion);
   }
 }
