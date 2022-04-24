@@ -5,12 +5,14 @@ import { AppComponent } from './app.component';
 import { OpcionComponent } from './opcion/opcion.component';
 import { EncuestaComponent } from './encuesta/encuesta.component';
 import { AppRoutingModule } from './app-routing.module';
+import { OpcionEncuestaComponent } from './opcion-encuesta/opcion-encuesta.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OpcionComponent,
-    EncuestaComponent
+    EncuestaComponent,
+    OpcionEncuestaComponent
   ],
   imports: [
     BrowserModule,

@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Encuesta, encuesta1 } from '../model/encuesta';
+import { OpcionEncuestaComponent } from '../opcion-encuesta/opcion-encuesta.component';
 import { EncuestaService } from '../encuesta.service';
 
 @Component({

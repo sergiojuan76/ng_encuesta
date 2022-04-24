@@ -1,5 +1,5 @@
 <p>Encuesta ID {{encuesta?.id}}</p>
 <p>Título: {{encuesta?.titulo}}</p>
 <div *ngFor="let opcion of encuesta?.opciones">
-    <a [title]="opcion.nombre" [routerLink]="['/opcion', encuesta!.id, opcion.id]">{{opcion.nombre}}</a>
+    <app-opcion-encuesta [opcion]="opcion" [encuesta]="encuesta!"></app-opcion-encuesta>
 </div>
