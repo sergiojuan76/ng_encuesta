@@ -20,6 +20,7 @@ export class OpcionEncuestaComponent implements OnInit {
 
   votar(): void {
     console.log("En voto");
+    this.opcion.votos = this.opcion.votos.valueOf() + 1;
     this.voto.emit();
   }
 }

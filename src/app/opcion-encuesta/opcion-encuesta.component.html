@@ -1,2 +1,3 @@
 <a [title]="opcion.nombre" [routerLink]="['/opcion', encuesta!.id, opcion.id]">{{opcion.nombre}}</a>
 <button type="button" (click)="votar()">Votar</button>
+{{opcion.votos}} votos

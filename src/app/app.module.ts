@@ -6,13 +6,15 @@ import { OpcionComponent } from './opcion/opcion.component';
 import { EncuestaComponent } from './encuesta/encuesta.component';
 import { AppRoutingModule } from './app-routing.module';
 import { OpcionEncuestaComponent } from './opcion-encuesta/opcion-encuesta.component';
+import { UsuarioSelectorComponent } from './usuario-selector/usuario-selector.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     OpcionComponent,
     EncuestaComponent,
-    OpcionEncuestaComponent
+    OpcionEncuestaComponent,
+    UsuarioSelectorComponent
   ],
   imports: [
     BrowserModule,
