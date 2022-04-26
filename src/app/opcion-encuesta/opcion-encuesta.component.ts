@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Encuesta } from '../model/encuesta';
 import { Opcion } from '../model/opcion';
+import { UsuarioService } from '../usuario.service';
 
 @Component({
   selector: 'app-opcion-encuesta',
@@ -13,14 +14,24 @@ export class OpcionEncuestaComponent implements OnInit {
   @Input() encuesta!: Encuesta;
   @Output() voto = new EventEmitter();
 
-  constructor() { }
+  constructor(private usuarioService: UsuarioService) { }
 
   ngOnInit(): void {
   }
 
   votar(): void {
     console.log("En voto");
-    this.opcion.votos = this.opcion.votos.valueOf() + 1;
+    const usuario = this.usuarioService.getUsuarioActivo();
+    const index = this.opcion.votos.indexOf(usuario);
+    if (index == -1) {
+      this.opcion.votos.push(usuario);
+    } else {
+      this.opcion.votos.splice(index, 1);
+    }
     this.voto.emit();
+  }
+
+  contarVotos(): Number {
+    return this.opcion.votos.length;
   }
 }

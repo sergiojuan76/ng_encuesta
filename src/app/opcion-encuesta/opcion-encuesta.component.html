@@ -1,3 +1,4 @@
 <a [title]="opcion.nombre" [routerLink]="['/opcion', encuesta!.id, opcion.id]">{{opcion.nombre}}</a>
+<span *ngFor="let votante of opcion.votos">{{votante.nombre}} </span>
+{{contarVotos()}}
 <button type="button" (click)="votar()">Votar</button>
-{{opcion.votos}} votos
