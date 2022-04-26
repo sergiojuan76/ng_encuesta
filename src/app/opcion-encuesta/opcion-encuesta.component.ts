@@ -1,6 +1,7 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { Encuesta } from '../model/encuesta';
 import { Opcion } from '../model/opcion';
+import { Usuario } from '../model/usuario';
 import { UsuarioService } from '../usuario.service';
 
 @Component({
@@ -29,6 +30,16 @@ export class OpcionEncuestaComponent implements OnInit {
       this.opcion.votos.splice(index, 1);
     }
     this.voto.emit();
+  }
+
+  votado(): boolean {
+    const usuario = this.usuarioService.getUsuarioActivo();
+    return this.opcion.votos.indexOf(usuario) != -1;
+  }
+
+  otrosVotantes(): Usuario[] {
+    const usuario = this.usuarioService.getUsuarioActivo();
+    return this.opcion.votos.filter(usuarioLista => usuarioLista !== usuario);
   }
 
   contarVotos(): Number {
