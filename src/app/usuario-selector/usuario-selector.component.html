@@ -1,3 +1,4 @@
-<select>
-    <option *ngFor="let usuario of getUsuarios()" [value]="usuario">{{usuario.nombre}}</option>
+<select [(ngModel)]="usuarioSeleccionado" (change)="onSelectUsuario()">
+    <option *ngFor="let usuarioSelect of getUsuarios()" [ngValue]="usuarioSelect">{{usuarioSelect.nombre}}</option>
 </select>
+{{usuarioSeleccionado | json}}

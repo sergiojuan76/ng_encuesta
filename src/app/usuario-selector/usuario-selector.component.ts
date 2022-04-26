@@ -1,3 +1,4 @@
+import { JsonPipe  } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
 import { Usuario } from '../model/usuario';
 import { UsuarioService } from '../usuario.service';
@@ -8,9 +9,13 @@ import { UsuarioService } from '../usuario.service';
 })
 export class UsuarioSelectorComponent implements OnInit {
 
-  constructor(private usuarioService: UsuarioService) { }
+  usuarioSeleccionado!: Usuario;
+  constructor(
+    private usuarioService: UsuarioService,
+    private jsonPipe: JsonPipe) { }
 
   ngOnInit(): void {
+    this.usuarioSeleccionado = this.usuarioService.getUsuarioActivo();
   }
 
   getUsuarios(): Usuario[] {
@@ -21,7 +26,8 @@ export class UsuarioSelectorComponent implements OnInit {
     return this.usuarioService.getUsuarioActivo();
   }
 
-  onSelectUsuario(usuario: Usuario): void {
-    this.usuarioService.setUsuarioActivo(usuario);
+  onSelectUsuario(): void {
+    console.log(`usuario seleccionado ${this.jsonPipe.transform(this.usuarioSeleccionado)}`);
+    this.usuarioService.setUsuarioActivo(this.usuarioSeleccionado);
   }
 }
