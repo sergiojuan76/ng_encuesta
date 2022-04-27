@@ -10,6 +10,7 @@ import { OpcionEncuestaComponent } from './opcion-encuesta/opcion-encuesta.compo
 import { UsuarioSelectorComponent } from './usuario-selector/usuario-selector.component';
 import { JsonPipe } from '@angular/common';
 import { ConcatenadorPipe } from './concatenador.pipe';
+import { RelojComponent } from './reloj/reloj.component';
 
 @NgModule({
   declarations: [
@@ -18,7 +19,8 @@ import { ConcatenadorPipe } from './concatenador.pipe';
     EncuestaComponent,
     OpcionEncuestaComponent,
     UsuarioSelectorComponent,
-    ConcatenadorPipe
+    ConcatenadorPipe,
+    RelojComponent
   ],
   imports: [
     BrowserModule,
