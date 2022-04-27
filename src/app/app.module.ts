@@ -9,6 +9,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { OpcionEncuestaComponent } from './opcion-encuesta/opcion-encuesta.component';
 import { UsuarioSelectorComponent } from './usuario-selector/usuario-selector.component';
 import { JsonPipe } from '@angular/common';
+import { ConcatenadorPipe } from './concatenador.pipe';
 
 @NgModule({
   declarations: [
@@ -16,7 +17,8 @@ import { JsonPipe } from '@angular/common';
     OpcionComponent,
     EncuestaComponent,
     OpcionEncuestaComponent,
-    UsuarioSelectorComponent
+    UsuarioSelectorComponent,
+    ConcatenadorPipe
   ],
   imports: [
     BrowserModule,

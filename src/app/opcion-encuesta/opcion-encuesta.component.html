@@ -1,4 +1,4 @@
 <a [title]="opcion.nombre" [routerLink]="['/opcion', encuesta!.id, opcion.id]">{{opcion.nombre}}</a> 
-<span *ngFor="let votante of otrosVotantes()">{{votante.nombre}} </span>
+{{ otrosVotantes() | concatenador:' - ' }}
 {{contarVotos()}}
 <input type="checkbox" [checked]="votado()" (click)="votar()"/>
