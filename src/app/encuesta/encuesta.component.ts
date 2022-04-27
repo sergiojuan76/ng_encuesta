@@ -12,6 +12,7 @@ import { EncuestaService } from '../encuesta.service';
 export class EncuestaComponent implements OnInit {
 
   encuesta!: Encuesta|null;
+  nuevaOpcion!: string;
 
   constructor(
     private activatedRoute : ActivatedRoute,
@@ -26,5 +27,9 @@ export class EncuestaComponent implements OnInit {
 
   onNotify() {
     console.log("Voto");
+  }
+
+  onAnyadirOpcion() {
+    this.encuesta?.opciones.push({id: 9, nombre: this.nuevaOpcion, votos: []});
   }
 }
