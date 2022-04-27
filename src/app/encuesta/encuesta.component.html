@@ -3,4 +3,5 @@
 <div *ngFor="let opcion of encuesta?.opciones">
     <app-opcion-encuesta [opcion]="opcion" [encuesta]="encuesta!" (voto)="onNotify()"></app-opcion-encuesta>
 </div>
-<label title="Nueva opción" for="nuevaOpcion">Nueva opción</label><input id="nuevaOpcion" type="text" [(ngModel)]="nuevaOpcion"/><button (click)="onAnyadirOpcion()">Añadir</button>
+<label title="Nueva opción" for="nuevaOpcion">Nueva opción</label><input id="nuevaOpcion" type="text" (change)="onAnyadirOpcion()" [(ngModel)]="nuevaOpcion"/><button (click)="onAnyadirOpcion()">Añadir</button>
+<span *ngIf="error">{{ error }}</span>
