@@ -10,6 +10,7 @@ export class RelojComponent implements OnInit {
 
   public time: number = 0;
   public state: string = "Stopped";
+  // Notifica al subscriber cada 1 segundo, hasta 5
   private crono = new Observable<number>(
     observer => {
       let start: number = (new Date()).getTime();
@@ -19,15 +20,13 @@ export class RelojComponent implements OnInit {
         let seconds = ((now - start) / 1000 | 0);
         if (lastCount < seconds) {
           observer.next(seconds);
-          if (seconds >= 5) {
-            console.log("Finishing");
-            return;
-          }
           lastCount = seconds;
         }
-        setTimeout(
-          repeat,
-          100);
+        if (seconds >= 5) {
+          console.log("Finishing");
+          return;
+        }
+        setTimeout(repeat, 100);
         })();
     });
 
