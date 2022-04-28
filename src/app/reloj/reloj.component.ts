@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs';
+import { Observable, Subscription } from 'rxjs';
 
 @Component({
   selector: 'app-reloj',
@@ -10,8 +10,9 @@ export class RelojComponent implements OnInit {
 
   public time: number = 0;
   public state: string = "Stopped";
+  private subscription: Subscription|undefined;
   // Notifica al subscriber cada 1 segundo, hasta 5
-  private crono = new Observable<number>(
+  private crono$ = new Observable<number>(
     observer => {
       let start: number = (new Date()).getTime();
       let lastCount = 0;
@@ -22,8 +23,9 @@ export class RelojComponent implements OnInit {
           observer.next(seconds);
           lastCount = seconds;
         }
-        if (seconds >= 5) {
+        if (seconds >= 10) {
           console.log("Finishing");
+          observer.complete();
           return;
         }
         setTimeout(repeat, 100);
@@ -37,20 +39,27 @@ export class RelojComponent implements OnInit {
 
   onStart(): void {
     console.log("Starting");
-    let self = this;
     this.state = "Executing";
-    this.crono.subscribe({
-      next(seconds: number) {
+    this.subscription = this.crono$.subscribe({
+      next: seconds =>  {
         console.log(`At next ${seconds}`);
-        self.time = seconds;
+        this.time = seconds;
       },
-      error(err) {
+      error: (err) => {
         console.log("Error");
       },
-      complete() {
+      complete: () => {
         console.log("Finished");
-        self.state = "Finished";
+        this.state = "Finished";
       }
     })
+  }
+
+  onStop(): void {
+    console.log("Stopping");
+    if (this.subscription) {
+      this.subscription.unsubscribe();
+      this.subscription = undefined;
+    }
   }
 }
