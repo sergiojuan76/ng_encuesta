@@ -1,7 +1,7 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
-
+import { HttpClientModule } from '@angular/common/http';
 import { AppComponent } from './app.component';
 import { OpcionComponent } from './opcion/opcion.component';
 import { EncuestaComponent } from './encuesta/encuesta.component';
@@ -11,6 +11,7 @@ import { UsuarioSelectorComponent } from './usuario-selector/usuario-selector.co
 import { JsonPipe } from '@angular/common';
 import { ConcatenadorPipe } from './concatenador.pipe';
 import { RelojComponent } from './reloj/reloj.component';
+import { DaysComponent } from './days/days.component';
 
 @NgModule({
   declarations: [
@@ -20,10 +21,12 @@ import { RelojComponent } from './reloj/reloj.component';
     OpcionEncuestaComponent,
     UsuarioSelectorComponent,
     ConcatenadorPipe,
-    RelojComponent
+    RelojComponent,
+    DaysComponent
   ],
   imports: [
     BrowserModule,
+    HttpClientModule,
     AppRoutingModule,
     FormsModule
   ],
