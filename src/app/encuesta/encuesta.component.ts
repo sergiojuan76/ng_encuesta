@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute } from '@angular/router';
 import { Encuesta, encuesta1 } from '../model/encuesta';
 import { EncuestaService } from '../encuesta.service';
+import { DynamoDBClient, BatchExecuteStatementCommand, BatchExecuteStatementInput } from '@aws-sdk/client-dynamodb';
+import { environment } from 'src/environments/environment';
+import { DbService } from '../db.service';
 
 @Component({
   selector: 'app-encuesta',
@@ -16,7 +19,8 @@ export class EncuestaComponent implements OnInit {
 
   constructor(
     private activatedRoute : ActivatedRoute,
-    private encuestaService : EncuestaService) { }
+    private encuestaService : EncuestaService,
+    private dbService: DbService) { }
 
   ngOnInit(): void {
     const routeParams = this.activatedRoute.snapshot.paramMap;
@@ -49,5 +53,11 @@ export class EncuestaComponent implements OnInit {
     this.encuesta?.opciones.push({id: id, nombre: this.nuevaOpcion, votos: []});
     this.error = null;
     this.nuevaOpcion = null;
+  }
+
+  onDbClick() {
+    this.dbService.getEncuesta(
+      'sjuan1',
+      (data: any) => {console.log(data)});
   }
 }

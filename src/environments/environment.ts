@@ -4,7 +4,12 @@
 
 export const environment = {
   production: false,
-  urlDays: 'http://placeholder.example/'
+  urlDays: 'http://placeholder.example/',
+  aws: {
+    region : 'eu-west-3',
+    accessKeyId: '[SECRET]',
+    secretAccessKey: '[SECRET]'
+  }
 };
 
 /*
