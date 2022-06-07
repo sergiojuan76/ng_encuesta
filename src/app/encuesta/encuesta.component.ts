@@ -59,5 +59,10 @@ export class EncuestaComponent implements OnInit {
     this.dbService.getEncuesta(
       'sjuan1',
       (data: any) => {console.log(data)});
+
+    let encuestaDb: any;
+    this.dbService.putItem(
+      "sjuan.5",
+      this.encuesta);
   }
 }
