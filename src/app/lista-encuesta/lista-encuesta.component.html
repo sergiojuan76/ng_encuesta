@@ -1,0 +1,9 @@
+<p>lista-encuesta works!</p>
+<table>
+    <tr *ngFor="let encuesta of getEncuestas()" [routerLink]="['/encuesta', encuesta.id]">
+        <td>{{encuesta.id}}</td>
+        <td>{{encuesta.titulo}}</td>
+        <td>{{encuesta.fechaCreacion}}</td>
+        <td>{{encuesta.estado}}</td>
+    </tr>
+</table>

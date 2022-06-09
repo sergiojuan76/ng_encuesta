@@ -9,6 +9,10 @@ export class EncuestaService {
 
   constructor() { }
 
+  getEncuestas(): Encuesta[] {
+    return [encuesta1];
+  }
+
   getEncuesta(id: Number) : Encuesta|null {
     if (id === encuesta1.id) {
       return encuesta1;

@@ -12,6 +12,7 @@ import { JsonPipe } from '@angular/common';
 import { ConcatenadorPipe } from './concatenador.pipe';
 import { RelojComponent } from './reloj/reloj.component';
 import { DaysComponent } from './days/days.component';
+import { ListaEncuestaComponent } from './lista-encuesta/lista-encuesta.component';
 
 @NgModule({
   declarations: [
@@ -22,7 +23,8 @@ import { DaysComponent } from './days/days.component';
     UsuarioSelectorComponent,
     ConcatenadorPipe,
     RelojComponent,
-    DaysComponent
+    DaysComponent,
+    ListaEncuestaComponent
   ],
   imports: [
     BrowserModule,
