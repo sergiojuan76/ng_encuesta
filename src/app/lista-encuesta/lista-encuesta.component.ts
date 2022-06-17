@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { EncuestaService } from '../encuesta.service';
 import { Encuesta } from '../model/encuesta';
 import { Usuario } from '../model/usuario';
@@ -10,13 +11,21 @@ import { Usuario } from '../model/usuario';
 })
 export class ListaEncuestaComponent implements OnInit {
 
+  nuevaEncuesta: FormGroup = this.formBuilder.group({
+    titulo: ['', Validators.required]
+  })
   constructor(
-    private encuestaService : EncuestaService) { }
+    private encuestaService : EncuestaService,
+    private formBuilder: FormBuilder) { }
 
   ngOnInit(): void {
   }
 
   getEncuestas(): Encuesta[] {
     return this.encuestaService.getEncuestas();
+  }
+
+  onNuevaEncuestaSubmit(): void {
+    console.log(this.nuevaEncuesta.value['titulo']);
   }
 }

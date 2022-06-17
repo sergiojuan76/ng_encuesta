@@ -7,3 +7,8 @@
         <td>{{encuesta.estado}}</td>
     </tr>
 </table>
+<form [formGroup]="nuevaEncuesta" (ngSubmit)="onNuevaEncuestaSubmit()">
+    <h5>Nueva encuesta</h5>
+    <input id="id_titulo" type="text" formControlName="titulo" required/>
+    <button type="submit">Crear</button>
+</form>

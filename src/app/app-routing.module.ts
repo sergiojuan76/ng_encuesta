@@ -5,8 +5,8 @@ import { EncuestaComponent } from './encuesta/encuesta.component';
 import { ListaEncuestaComponent } from './lista-encuesta/lista-encuesta.component';
 
 const routes: Routes = [
-  { path: '', component: ListaEncuestaComponent},
-  { path: 'encuesta/:idEncuesta', component: EncuestaComponent},
+  { path: '', component: ListaEncuestaComponent, title: 'Lista de encuestas'},
+  { path: 'encuesta/:idEncuesta', component: EncuestaComponent, title: 'Encuesta'},
   { path: 'opcion/:idEncuesta/:idOpcion', component: OpcionComponent}
 ];
 

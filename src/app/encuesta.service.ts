@@ -13,14 +13,14 @@ export class EncuestaService {
     return [encuesta1];
   }
 
-  getEncuesta(id: Number) : Encuesta|null {
+  getEncuesta(id: string) : Encuesta|null {
     if (id === encuesta1.id) {
       return encuesta1;
     }
     return null;
   }
 
-  getOpcion(idEncuesta: Number, idOpcion: Number) : Opcion|null {
+  getOpcion(idEncuesta: string, idOpcion: Number) : Opcion|null {
     if (idEncuesta === encuesta1.id) {
       const opcFiltrada = opciones1.filter(opcion => opcion.id === idOpcion);
       if (opcFiltrada.length == 1) {

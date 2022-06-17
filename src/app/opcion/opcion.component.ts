@@ -18,9 +18,11 @@ export class OpcionComponent implements OnInit {
 
   ngOnInit(): void {
     const paramMap = this.activatedRoute.snapshot.paramMap;
-    const idEncuesta = Number(paramMap.get("idEncuesta"));
+    const idEncuesta = paramMap.get("idEncuesta");
     const idOpcion = Number(paramMap.get("idOpcion"));
     console.log(`en OpcionComponent.ngOnInit() -> ${idEncuesta} - ${idOpcion}`);
-    this.opcion = this.encuestaService.getOpcion(idEncuesta, idOpcion);
+    if (idEncuesta && idOpcion) {
+      this.opcion = this.encuestaService.getOpcion(idEncuesta, idOpcion);
+    }
   }
 }
